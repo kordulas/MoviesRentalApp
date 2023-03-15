@@ -1,9 +1,6 @@
 package com.movielibrary.demo.client.api;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
@@ -13,17 +10,9 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 public class Client {
-
-    public Client(String firstName, String lastName, LocalDate birthdate, Long peselNumber, @Nullable String contactNumber, @Nullable String contactEmail) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthdate = birthdate;
-        this.peselNumber = peselNumber;
-        this.contactNumber = contactNumber;
-        this.contactEmail = contactEmail;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

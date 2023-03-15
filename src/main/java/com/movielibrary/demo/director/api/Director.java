@@ -1,4 +1,4 @@
-package com.movielibrary.demo.movie.api;
+package com.movielibrary.demo.director.api;
 
 import lombok.*;
 import org.springframework.lang.Nullable;

@@ -1,5 +1,6 @@
 package com.movielibrary.demo.movie.api;
 
+import com.movielibrary.demo.director.api.Director;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.springframework.lang.Nullable;
@@ -14,13 +15,13 @@ import java.util.Objects;
 @NoArgsConstructor
 @ToString
 @AllArgsConstructor
-public class Movie implements Comparable<Movie> {
+public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Nullable
     private Long movieId;
-    @Column(name = "Title")
+    @Column(name = "Title", unique = true)
     private String movieTitle;
     @Column(name = "Release_year ")
     private int releaseYear;
@@ -38,15 +39,5 @@ public class Movie implements Comparable<Movie> {
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         Movie movie = (Movie) o;
         return movieId != null && Objects.equals(movieId, movie.movieId);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
-
-    @Override
-    public int compareTo(Movie o) {
-        return this.movieTitle.compareTo(o.getMovieTitle());
     }
 }
