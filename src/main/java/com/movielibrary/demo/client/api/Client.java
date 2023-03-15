@@ -35,7 +35,7 @@ public class Client {
     private String lastName;
     @Column(name = "Birthday", nullable = false, unique = false)
     private LocalDate birthdate;
-    @Column(name = "Pesel_Number", nullable = false, unique = false)
+    @Column(name = "Pesel_Number", nullable = false, unique = true)
     private Long peselNumber;
     @Column(name = "Contact_Number", unique = true)
     @Nullable
