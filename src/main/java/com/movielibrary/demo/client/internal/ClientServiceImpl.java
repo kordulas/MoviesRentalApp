@@ -2,6 +2,8 @@ package com.movielibrary.demo.client.internal;
 
 import com.movielibrary.demo.client.api.Client;
 import com.movielibrary.demo.client.api.ClientNotFoundException;
+import com.movielibrary.demo.client.api.WrongEmailAddressFormatException;
+import com.movielibrary.demo.client.api.WrongPeselFormatException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -28,6 +30,16 @@ public class ClientServiceImpl {
             throw new ClientNotFoundException(id);
         }
         return clientOptional.get();
+    }
+
+    public void addNewClient(Client client){
+        if(!validateStringAsCorrectEmailAddress(client.getContactEmail())){
+            throw new WrongEmailAddressFormatException("You use not allowed email address format");
+        }
+        if(!validateStringAsCorrectPesel(client.getPeselNumber())){
+            throw new WrongPeselFormatException("You use not allowed pesel format");
+        }
+
     }
 
 

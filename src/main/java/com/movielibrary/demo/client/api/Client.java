@@ -25,9 +25,8 @@ public class Client {
     @Column(name = "Birthday", nullable = false, unique = false)
     private LocalDate birthdate;
     @Column(name = "Pesel_Number", nullable = false, unique = true)
-    private Long peselNumber;
-    @Column(name = "Contact_Number", unique = true)
-    @Nullable
+    private String peselNumber;
+    @Column(name = "Contact_Number", nullable = true, unique = true)
     private String contactNumber;
     @Column(name = "Contact_Email",unique = true)
     private String contactEmail;
