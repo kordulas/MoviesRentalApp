@@ -32,7 +32,7 @@ public class ClientServiceImpl {
 
 
 
-    /** Method to check if our List is empty and will throw unwanted
+    /**Generic method to check if our List is empty and will throw unwanted
      * NullPointerException. Accept List which is possible empty,
      * if it is empty throw exception, if is not return list.
      * @param list
@@ -62,7 +62,7 @@ public class ClientServiceImpl {
      * @return true if string included email address is correct, otherwise false.
      */
     private boolean validateStringAsCorrectPesel(String peselNumber) {
-        String regex = "^\\d{11}$";
+        String regex = "^[0-9]{11}$";
         return Pattern.compile(regex)
                 .matcher(peselNumber)
                 .matches();
